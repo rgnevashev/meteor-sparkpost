@@ -49,10 +49,10 @@ class SparkPostClass
       if res.data?.results then res.data.results else res.data
     catch e
       if e.response.data?.errors
-        console.log e.response.data
         console.error "SparkPost: #{e.response.data.errors[0].message} [#{e.response.data.errors[0].description}]"
+        e.response.data.errors[0]
       else
-        console.error 'SparkPost unknow error'
+        console.error 'SparkPost: unknow error'
 
 
 @SparkPost = new SparkPostClass
