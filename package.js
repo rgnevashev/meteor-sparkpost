@@ -1,6 +1,6 @@
 Package.describe({
   name: 'rgnevashev:sparkpost',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'A Node.js wrapper for interfacing with your favorite SparkPost APIs',
   git: 'https://github.com/rgnevashev/meteor-sparkpost.git',
   documentation: 'README.md'
