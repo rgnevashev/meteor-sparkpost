@@ -43,9 +43,15 @@ class SparkPostClass
     try
       res =
         if !!callback
-          HTTP.call method, url, options, callback
+          if method in ['DEL','del']
+            HTTP.del url, options, callback
+          else
+            HTTP.call method, url, options, callback
         else
-          HTTP.call method, url, options
+          if method in ['DEL','del']
+            HTTP.del url, options
+          else
+            HTTP.call method, url, options
       if res.data?.results then res.data.results else res.data
     catch e
       if e.response.data?.errors
