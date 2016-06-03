@@ -55,10 +55,8 @@ class SparkPostClass
       if res.data?.results then res.data.results else res.data
     catch e
       if e.response.data?.errors
-        console.error "SparkPost: #{e.response.data.errors[0].message} [#{e.response.data.errors[0].description}]"
-        e.response.data.errors[0]
+        throw new Meteor.Error e.response.data.errors[0].message, e.response.data.errors[0].description
       else
-        console.error 'SparkPost: unknow error'
-
+        throw new Meteor.Error 'email-error', 'Unknow error'
 
 @SparkPost = new SparkPostClass
